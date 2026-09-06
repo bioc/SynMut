@@ -9,6 +9,7 @@ output:
     toc: true
     theme: tactile
     highlight: github
+    self_contained: true
 vignette: >
   %\VignetteIndexEntry{SynMut: Designing Synonymous Mutants for DNA Sequences}
   %\VignetteEngine{knitr::rmarkdown}
@@ -47,11 +48,14 @@ generic to a variety of other biological researches.
 
 Below is a flowchart illustrating how the components work togaether in this
 package.
-```{r, echo=FALSE, message = FALSE}
-url <- paste0("https://raw.githubusercontent.com/Koohoko/Koohoko.github.io/",
-  "master/SynMut/images/component.png")
+<!-- Original diagram: Koohoko/Koohoko.github.io,
+commit 8cd0e39febe4b4e243cec068401c2b48dc014678,
+files/SynMut/images/component.png.
+SHA-256: 44d5fe00b1771c0f9c7def7b726a3353b7f0924fce440f0707a075c549bfabc8
+-->
+```{r component-diagram, echo=FALSE, out.width="100%", fig.align="center"}
+knitr::include_graphics("images/component.png")
 ```
-<center><img src="`r url`"></center>
 
 ## Getting started
 ### Installation

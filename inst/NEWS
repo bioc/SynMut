@@ -1,3 +1,8 @@
+Changes in version 1.29.1 (2026-09-05)
++ Bundled the component flowchart with the package and repaired its vignette image.
++ Made the self-contained vignette independent of the remote flowchart URL.
++ Updated README tutorial and development-install links and added maintainer checks.
+
 Changes in version 0.99.0 (2019-04-16)
 + Submitted to Bioconductor
 

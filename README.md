@@ -19,7 +19,7 @@ This tool was originally designed for generating recombinant virus sequences in 
 
 ### Components of the package
 
-![image](https://raw.githubusercontent.com/Koohoko/Koohoko.github.io/master/SynMut/images/component.png)
+![SynMut component flowchart](vignettes/images/component.png)
 
 ### Installation 
 Use the below code to install the package.
@@ -37,18 +37,46 @@ if (!requireNamespace("devtools"))
     install.packages("devtools")
 
 if (!requireNamespace("SynMut"))
-    devtools::install_github("Koohoko/SynMut")
+    devtools::install_github("Koohoko/SynMut", ref = "devel")
 ```
 
 ### Example and methods
 
-Details tutorial please refer to the [vignette](https://koohoko.github.io/SynMut/index.html).
+Details tutorial please refer to the [vignette](https://bioconductor.org/packages/devel/bioc/vignettes/SynMut/inst/doc/SynMut.html).
 
 The strategies and functionalities of the `codom_mimic` and `dinu_to` functions can be found at [here](https://koohoko.github.io/SynMut/algorithm.html).
 
 ### Find it at Bioconductor
 https://bioconductor.org/packages/devel/bioc/html/SynMut.html
 ***
+
+### Maintainer checklist
+
+1. Fetch both remotes and start from the current Bioconductor `upstream/devel`.
+   Record the source commit and package version. Review GitHub-only changes
+   separately; the package maintenance branch is `devel` on both remotes.
+   Bump the patch version and update `inst/NEWS` before the final build.
+2. Use the R version appropriate for Bioconductor devel and a dedicated package
+   library containing all `Imports` and `Suggests`. Check `BiocManager::valid()`
+   and install Pandoc and TeX for the vignette and PDF manual.
+3. Download the current [build environment settings](https://bioconductor.org/checkResults/devel/bioc-LATEST/Renviron.bioc)
+   to a separate file and select it with `R_ENVIRON_USER` for build/check sessions.
+   Set `R_LIBS_USER` to the dedicated library; keep these settings out of the
+   global R configuration.
+4. In a temporary directory, build a clean source copy with
+   `R CMD build --keep-empty-dirs --no-resave-data --md5 SynMut`, then run
+   `R CMD check --timings SynMut_<version>.tar.gz`. Keep the complete logs and
+   session information. Include tests, examples, vignettes and the PDF manual.
+5. Rebuild a clean copy with network access disabled after installing dependencies.
+   Confirm that the source archive contains `vignettes/images/component.png` and
+   that the generated HTML embeds a valid PNG. Open the HTML to inspect the
+   flowchart; a successful build alone does not prove images are valid.
+6. Review the final diff and checks before publishing the tested commit to both
+   remotes' `devel` branches.
+   Check the [official build report](https://bioconductor.org/checkResults/devel/bioc-LATEST/SynMut/)
+   after 24-48 hours. Match its version and commit to the published update, and
+   inspect the distributed vignette again. Save raw logs immediately if a failure
+   occurs because the latest report is overwritten by subsequent builds.
 
 ### Changelog
 Changes in version 1.1.5 (2022-06-03)
